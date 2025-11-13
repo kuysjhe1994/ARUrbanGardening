@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AR Urban Garden</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_welcome">Maligayang Pagdating!</string>
+    <string name="onboarding_welcome_subtitle">Matuto ng urban gardening gamit ang AR!</string>
+    <string name="onboarding_camera_permission">Kailangan namin ng camera para sa AR</string>
+    <string name="onboarding_privacy">Privacy at Safety</string>
+    <string name="onboarding_privacy_text">Lahat ng data ay naka-save sa iyong device. Kailangan ng permiso ng magulang para sa cloud sync.</string>
+    <string name="onboarding_get_started">Magsimula</string>
+    <string name="onboarding_next">Susunod</string>
+    <string name="onboarding_skip">Laktawan</string>
+    
+    <!-- Main Menu -->
+    <string name="menu_identify_plant">Tukuyin ang Halaman</string>
+    <string name="menu_place_garden">Ilagay ang Hardin</string>
+    <string name="menu_measure">Sukatin</string>
+    <string name="menu_track_growth">Subaybayan ang Paglago</string>
+    <string name="menu_settings">Mga Setting</string>
+    
+    <!-- Plant Recognition -->
+    <string name="plant_recognition_title">Tukuyin ang Halaman</string>
+    <string name="plant_recognition_instruction">Itutok ang camera sa halaman</string>
+    <string name="plant_recognition_scanning">Sinusuri…</string>
+    <string name="plant_recognition_found">Natuklasan: %1$s</string>
+    <string name="plant_recognition_confidence">Kumpiyansa: %1$d%%</string>
+    <string name="plant_recognition_not_found">Hindi natukoy ang halaman. Subukan muli.</string>
+    
+    <!-- Care Actions -->
+    <string name="care_water">Diligan</string>
+    <string name="care_water_now">Diligan ngayon</string>
+    <string name="care_water_ok">Okay ang tubig</string>
+    <string name="care_sunlight">Araw</string>
+    <string name="care_sunlight_too_little">Kulang sa araw</string>
+    <string name="care_sunlight_too_much">Sobra sa araw</string>
+    <string name="care_sunlight_ok">Tamang araw</string>
+    <string name="care_trim">Gupitin</string>
+    <string name="care_fertilize">Patabain</string>
+    
+    <!-- AR Placement -->
+    <string name="ar_placement_title">Ilagay ang Hardin</string>
+    <string name="ar_placement_instruction">Hanapin ang patag na lugar</string>
+    <string name="ar_placement_place">Ilagay</string>
+    <string name="ar_placement_clear">Tanggalin</string>
+    <string name="ar_placement_spacing_warning">Masyadong malapit!</string>
+    
+    <!-- Measurement -->
+    <string name="measurement_title">Sukatin</string>
+    <string name="measurement_instruction">Tapikin ang dalawang punto para sukatin</string>
+    <string name="measurement_result">Distansya: %1$.1f cm</string>
+    <string name="measurement_height">Taas: %1$.1f cm</string>
+    <string name="measurement_diameter">Diyametro: %1$.1f cm</string>
+    <string name="measurement_reset">Reset</string>
+    
+    <!-- Growth Tracking -->
+    <string name="growth_tracking_title">Subaybayan ang Paglago</string>
+    <string name="growth_tracking_record">Record</string>
+    <string name="growth_tracking_view_timeline">Tingnan ang Timeline</string>
+    <string name="growth_tracking_no_records">Walang record pa</string>
+    <string name="growth_tracking_date">Petsa: %1$s</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Mga Setting</string>
+    <string name="settings_language">Wika</string>
+    <string name="settings_language_tagalog">Tagalog</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_voice_guidance">Voice Guidance</string>
+    <string name="settings_high_contrast">High Contrast</string>
+    <string name="settings_parental_consent">Parental Consent</string>
+    <string name="settings_cloud_sync">Cloud Sync</string>
+    <string name="settings_delete_data">Delete Data</string>
+    
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Kanselahin</string>
+    <string name="retry">Subukan muli</string>
+    <string name="loading">Naglo-load…</string>
+    <string name="error">May error</string>
+    <string name="permission_required">Kailangan ng permiso</string>
+    <string name="permission_camera_required">Kailangan ng camera permission para sa AR</string>
+    
+    <!-- Badges -->
+    <string name="badge_first_plant">Unang Halaman</string>
+    <string name="badge_water_master">Water Master</string>
+    <string name="badge_growth_tracker">Growth Tracker</string>
+    <string name="badge_harvest">First Harvest</string>
+    
+    <!-- Pest/Disease -->
+    <string name="pest_detection_title">Tingnan ang Problema</string>
+    <string name="pest_detection_instruction">Kumuha ng malapit na larawan</string>
+    <string name="pest_detection_found">Posibleng problema: %1$s</string>
+    <string name="pest_detection_action">Rekomendasyon: %1$s</string>
+    <string name="pest_detection_safety">Laging humingi ng tulong sa matanda</string>
+    
+    <!-- BLE Sensor -->
+    <string name="sensor_connect">Ikonekta ang Sensor</string>
+    <string name="sensor_connected">Nakakonekta</string>
+    <string name="sensor_disconnected">Nadiskonekta</string>
+    <string name="sensor_moisture">Moisture: %1$d%%</string>
+    <string name="sensor_ph">pH: %1$.1f</string>
+    <string name="sensor_temperature">Temperatura: %1$.1f°C</string>
+    
+    <!-- Weather -->
+    <string name="weather_current">Kasalukuyang Panahon</string>
+    <string name="weather_temperature">%1$.1f°C</string>
+    <string name="weather_humidity">Humidity: %1$d%%</string>
+    <string name="weather_rain">Ulan: %1$s</string>
+    
+</resources>
+

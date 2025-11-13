@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AR Urban Garden</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_welcome">Welcome!</string>
+    <string name="onboarding_welcome_subtitle">Learn urban gardening with AR!</string>
+    <string name="onboarding_camera_permission">We need camera for AR</string>
+    <string name="onboarding_privacy">Privacy and Safety</string>
+    <string name="onboarding_privacy_text">All data is saved on your device. Parent permission needed for cloud sync.</string>
+    <string name="onboarding_get_started">Get Started</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_skip">Skip</string>
+    
+    <!-- Main Menu -->
+    <string name="menu_identify_plant">Identify Plant</string>
+    <string name="menu_place_garden">Place Garden</string>
+    <string name="menu_measure">Measure</string>
+    <string name="menu_track_growth">Track Growth</string>
+    <string name="menu_settings">Settings</string>
+    
+    <!-- Plant Recognition -->
+    <string name="plant_recognition_title">Identify Plant</string>
+    <string name="plant_recognition_instruction">Point camera at plant</string>
+    <string name="plant_recognition_scanning">Scanning…</string>
+    <string name="plant_recognition_found">Found: %1$s</string>
+    <string name="plant_recognition_confidence">Confidence: %1$d%%</string>
+    <string name="plant_recognition_not_found">Plant not identified. Try again.</string>
+    
+    <!-- Care Actions -->
+    <string name="care_water">Water</string>
+    <string name="care_water_now">Water now</string>
+    <string name="care_water_ok">Water OK</string>
+    <string name="care_sunlight">Sunlight</string>
+    <string name="care_sunlight_too_little">Too little sun</string>
+    <string name="care_sunlight_too_much">Too much sun</string>
+    <string name="care_sunlight_ok">Sunlight OK</string>
+    <string name="care_trim">Trim</string>
+    <string name="care_fertilize">Fertilize</string>
+    
+    <!-- AR Placement -->
+    <string name="ar_placement_title">Place Garden</string>
+    <string name="ar_placement_instruction">Find flat surface</string>
+    <string name="ar_placement_place">Place</string>
+    <string name="ar_placement_clear">Clear</string>
+    <string name="ar_placement_spacing_warning">Too close!</string>
+    
+    <!-- Measurement -->
+    <string name="measurement_title">Measure</string>
+    <string name="measurement_instruction">Tap two points to measure</string>
+    <string name="measurement_result">Distance: %1$.1f cm</string>
+    <string name="measurement_height">Height: %1$.1f cm</string>
+    <string name="measurement_diameter">Diameter: %1$.1f cm</string>
+    <string name="measurement_reset">Reset</string>
+    
+    <!-- Growth Tracking -->
+    <string name="growth_tracking_title">Track Growth</string>
+    <string name="growth_tracking_record">Record</string>
+    <string name="growth_tracking_view_timeline">View Timeline</string>
+    <string name="growth_tracking_no_records">No records yet</string>
+    <string name="growth_tracking_date">Date: %1$s</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_tagalog">Tagalog</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_voice_guidance">Voice Guidance</string>
+    <string name="settings_high_contrast">High Contrast</string>
+    <string name="settings_parental_consent">Parental Consent</string>
+    <string name="settings_cloud_sync">Cloud Sync</string>
+    <string name="settings_delete_data">Delete Data</string>
+    
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+    <string name="loading">Loading…</string>
+    <string name="error">Error</string>
+    <string name="permission_required">Permission required</string>
+    <string name="permission_camera_required">Camera permission required for AR</string>
+    
+    <!-- Badges -->
+    <string name="badge_first_plant">First Plant</string>
+    <string name="badge_water_master">Water Master</string>
+    <string name="badge_growth_tracker">Growth Tracker</string>
+    <string name="badge_harvest">First Harvest</string>
+    
+    <!-- Pest/Disease -->
+    <string name="pest_detection_title">Check Problem</string>
+    <string name="pest_detection_instruction">Take close-up photo</string>
+    <string name="pest_detection_found">Possible problem: %1$s</string>
+    <string name="pest_detection_action">Recommendation: %1$s</string>
+    <string name="pest_detection_safety">Always ask adult for help</string>
+    
+    <!-- BLE Sensor -->
+    <string name="sensor_connect">Connect Sensor</string>
+    <string name="sensor_connected">Connected</string>
+    <string name="sensor_disconnected">Disconnected</string>
+    <string name="sensor_moisture">Moisture: %1$d%%</string>
+    <string name="sensor_ph">pH: %1$.1f</string>
+    <string name="sensor_temperature">Temperature: %1$.1f°C</string>
+    
+    <!-- Weather -->
+    <string name="weather_current">Current Weather</string>
+    <string name="weather_temperature">%1$.1f°C</string>
+    <string name="weather_humidity">Humidity: %1$d%%</string>
+    <string name="weather_rain">Rain: %1$s</string>
+    
+</resources>
+
