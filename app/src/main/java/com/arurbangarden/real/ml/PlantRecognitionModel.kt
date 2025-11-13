@@ -113,6 +113,12 @@ class PlantRecognitionModel(private val context: Context) {
     }
     
     private fun createPlantDatabase(): List<Plant> {
+        // Use expanded plant database
+        return com.arurbangarden.real.data.database.PlantDatabase.getAllPlants()
+    }
+    
+    // Legacy method - kept for reference
+    private fun createPlantDatabaseLegacy(): List<Plant> {
         // Common urban plants in the Philippines
         return listOf(
             Plant(
