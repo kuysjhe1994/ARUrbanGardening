@@ -12,12 +12,8 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
+// Note: Repositories are now managed in settings.gradle
+// allprojects block removed to comply with FAIL_ON_PROJECT_REPOS mode
 
 task clean(type: Delete) {
     delete rootProject.buildDir

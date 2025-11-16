@@ -21,6 +21,8 @@ object ARCoreImageUtils {
      */
     fun convertImageToBitmap(image: Image): Bitmap? {
         return try {
+            // ARCore typically provides YUV_420_888 format
+            // Check format and convert accordingly
             when (image.format) {
                 ImageFormat.YUV_420_888 -> {
                     convertYuv420888ToBitmap(image)
@@ -33,8 +35,17 @@ object ARCoreImageUtils {
                     BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
                 }
                 else -> {
-                    // Try YUV conversion as fallback
-                    convertYuv420888ToBitmap(image)
+                    // Default: Try YUV conversion (most common for ARCore)
+                    // ARCore camera images are typically YUV_420_888
+                    if (image.planes.size >= 3) {
+                        convertYuv420888ToBitmap(image)
+                    } else {
+                        // Fallback: try JPEG if only one plane
+                        val buffer = image.planes[0].buffer
+                        val bytes = ByteArray(buffer.remaining())
+                        buffer.get(bytes)
+                        BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+                    }
                 }
             }
         } catch (e: Exception) {
