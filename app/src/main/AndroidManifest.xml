@@ -20,6 +20,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".ARUrbanGardenApplication"
@@ -71,8 +74,83 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.ARUrbanGarden" />
         
+        <!-- Timeline Activity -->
+        <activity
+            android:name=".ui.tracking.TimelineActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden" />
+        
+        <!-- Add Growth Photo Activity -->
+        <activity
+            android:name=".ui.tracking.AddGrowthPhotoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden" />
+        
+        <!-- Growth Record Detail Activity -->
+        <activity
+            android:name=".ui.tracking.GrowthRecordDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden" />
+        
+        <!-- Safety Activities -->
+        <activity
+            android:name=".ui.safety.ParentalConsentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden" />
+        
+        <activity
+            android:name=".ui.safety.SafeUseTipsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden" />
+        
+        <activity
+            android:name=".ui.safety.PINActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden" />
+        
+        <!-- Missions Activity -->
+        <activity
+            android:name=".ui.missions.MissionsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden" />
+        
+        <!-- Mission Detail Activity -->
+        <activity
+            android:name=".ui.missions.MissionDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden" />
+        
         <!-- Meta data for ARCore -->
         <meta-data android:name="com.google.ar.core" android:value="required" />
+        
+        <!-- File Provider for sharing photos -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+        
+        <!-- Reminder Receiver -->
+        <receiver
+            android:name=".receiver.ReminderReceiver"
+            android:exported="false"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         
     </application>
 

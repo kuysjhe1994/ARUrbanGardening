@@ -17,7 +17,21 @@
     <string name="menu_place_garden">Ilagay ang Hardin</string>
     <string name="menu_measure">Sukatin</string>
     <string name="menu_track_growth">Subaybayan ang Paglago</string>
+    <string name="menu_missions">Mga Mission</string>
     <string name="menu_settings">Mga Setting</string>
+    
+    <!-- Missions -->
+    <string name="missions_title">Mga Mission</string>
+    <string name="missions_empty">Walang mission ngayon. I-refresh para sa bagong missions!</string>
+    <string name="mission_progress">%1$d / %2$d completed</string>
+    <string name="mission_points">Points: %1$d</string>
+    <string name="mission_start">Simulan</string>
+    <string name="mission_complete">Tapos na!</string>
+    <string name="mission_completed">Completed!</string>
+    <string name="mission_pending">Pending</string>
+    <string name="mission_in_progress">In Progress</string>
+    <string name="mission_badge_earned">Badge Earned!</string>
+    <string name="mission_refresh">Refresh</string>
     
     <!-- Plant Recognition -->
     <string name="plant_recognition_title">Tukuyin ang Halaman</string>
@@ -59,6 +73,26 @@
     <string name="growth_tracking_view_timeline">Tingnan ang Timeline</string>
     <string name="growth_tracking_no_records">Walang record pa</string>
     <string name="growth_tracking_date">Petsa: %1$s</string>
+    <string name="growth_timeline_title">Growth Timeline</string>
+    <string name="growth_add_photo">Add Photo</string>
+    <string name="growth_note_hint">Example: Lumaki! May bagong dahon!</string>
+    <string name="growth_note_max">Keep notes short! Max 30 characters.</string>
+    <string name="growth_export">Export</string>
+    <string name="growth_export_consent">Parent/teacher consent required for export</string>
+    
+    <!-- Reminders -->
+    <string name="reminders_title">Reminders</string>
+    <string name="reminders_enabled">Enable Reminders</string>
+    <string name="reminder_watering">Time to Water!</string>
+    <string name="reminder_sunlight">Check Sunlight!</string>
+    <string name="reminder_photo">Weekly Photo!</string>
+    
+    <!-- Safety -->
+    <string name="safety_mode_title">Safety Mode</string>
+    <string name="safety_set_pin">Set PIN for Settings</string>
+    <string name="safety_safe_tips">Safe Use Tips</string>
+    <string name="safety_parental_consent">Parental Consent</string>
+    <string name="safety_consent_required">Parent/teacher consent required</string>
     
     <!-- Settings -->
     <string name="settings_title">Mga Setting</string>
@@ -69,6 +103,7 @@
     <string name="settings_high_contrast">High Contrast</string>
     <string name="settings_parental_consent">Parental Consent</string>
     <string name="settings_cloud_sync">Cloud Sync</string>
+    <string name="settings_missions_enabled">Enable Daily Missions</string>
     <string name="settings_delete_data">Delete Data</string>
     
     <!-- Common -->

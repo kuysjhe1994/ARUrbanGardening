@@ -14,6 +14,21 @@ class ARUrbanGardenApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        
+        // Initialize reminders if enabled
+        initializeReminders()
+    }
+    
+    private fun initializeReminders() {
+        val prefs = getSharedPreferences()
+        val remindersEnabled = prefs.getBoolean("reminders_enabled", true)
+        
+        if (remindersEnabled) {
+            val reminderManager = com.arurbangarden.real.data.reminder.ReminderManager(this)
+            reminderManager.createDefaultReminders().forEach { reminder ->
+                reminderManager.scheduleReminder(reminder)
+            }
+        }
     }
     
     fun getSharedPreferences() = PreferenceManager.getDefaultSharedPreferences(this)

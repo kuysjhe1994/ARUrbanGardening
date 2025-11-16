@@ -13,6 +13,7 @@ import androidx.preference.PreferenceManager
 import com.arurbangarden.real.R
 import com.arurbangarden.real.databinding.ActivityOnboardingBinding
 import com.arurbangarden.real.ui.MainActivity
+import com.arurbangarden.real.ui.safety.ParentalConsentActivity
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -116,21 +117,9 @@ class OnboardingActivity : AppCompatActivity() {
     }
     
     private fun showParentalConsentDialog() {
-        AlertDialog.Builder(this)
-            .setTitle(R.string.onboarding_privacy)
-            .setMessage(R.string.onboarding_privacy_text)
-            .setPositiveButton(R.string.ok) { _, _ ->
-                val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-                prefs.edit().putBoolean("parental_consent", true).apply()
-                finishOnboarding()
-            }
-            .setNegativeButton(R.string.cancel) { _, _ ->
-                val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-                prefs.edit().putBoolean("parental_consent", false).apply()
-                finishOnboarding()
-            }
-            .setCancelable(false)
-            .show()
+        // Show full parental consent activity
+        startActivity(Intent(this, ParentalConsentActivity::class.java))
+        finish()
     }
     
     private fun finishOnboarding() {

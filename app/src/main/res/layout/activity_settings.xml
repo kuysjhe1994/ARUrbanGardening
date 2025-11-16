@@ -80,6 +80,59 @@
                 android:text="Enable (requires parental consent)"
                 android:layout_marginBottom="24dp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Missions"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switch_missions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enable Daily Missions"
+                android:layout_marginBottom="24dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reminders"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switch_reminders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enable Reminders"
+                android:layout_marginBottom="24dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Safety & Security"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_set_pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Set PIN for Settings"
+                android:layout_marginBottom="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_safe_tips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Safe Use Tips"
+                android:layout_marginBottom="24dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_back"
                 android:layout_width="match_parent"

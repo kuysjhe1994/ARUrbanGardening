@@ -23,7 +23,9 @@ data class GrowthMetadata(
     val weatherCondition: String? = null,
     val weatherTemperature: Float? = null,
     val weatherHumidity: Int? = null,
-    val notes: String? = null
+    val notes: String? = null,
+    val emoji: String? = null,  // Selected emoji
+    val stickers: List<String>? = null  // Selected sticker IDs
 ) : Parcelable
 
 data class GrowthTimeline(

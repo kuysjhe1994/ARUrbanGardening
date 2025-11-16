@@ -51,7 +51,9 @@ data class GrowthRecordEntity(
     val weatherCondition: String?,
     val weatherTemperature: Float?,
     val weatherHumidity: Int?,
-    val notes: String?
+    val notes: String?,
+    val emoji: String?,
+    val stickers: String?  // JSON string of sticker list
 ) {
     fun toGrowthRecord(): GrowthRecord {
         return GrowthRecord(
@@ -69,9 +71,20 @@ data class GrowthRecordEntity(
                 weatherCondition = weatherCondition,
                 weatherTemperature = weatherTemperature,
                 weatherHumidity = weatherHumidity,
-                notes = notes
+                notes = notes,
+                emoji = emoji,
+                stickers = stickers?.let { parseStickersJson(it) }
             )
         )
+    }
+    
+    private fun parseStickersJson(json: String): List<String>? {
+        // Simple parsing - in production use proper JSON library
+        return if (json.isNotEmpty()) {
+            json.split(",")
+        } else {
+            null
+        }
     }
     
     companion object {
@@ -90,7 +103,9 @@ data class GrowthRecordEntity(
                 weatherCondition = record.metadata.weatherCondition,
                 weatherTemperature = record.metadata.weatherTemperature,
                 weatherHumidity = record.metadata.weatherHumidity,
-                notes = record.metadata.notes
+                notes = record.metadata.notes,
+                emoji = record.metadata.emoji,
+                stickers = record.metadata.stickers?.joinToString(",")
             )
         }
     }

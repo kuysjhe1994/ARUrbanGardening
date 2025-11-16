@@ -1,10 +1,14 @@
 package com.arurbangarden.real.ui.settings
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import com.arurbangarden.real.R
 import com.arurbangarden.real.databinding.ActivitySettingsBinding
+import com.arurbangarden.real.ui.safety.PINActivity
+import com.arurbangarden.real.ui.safety.SafeUseTipsActivity
+import com.arurbangarden.real.data.reminder.ReminderManager
 
 class SettingsActivity : AppCompatActivity() {
     
@@ -12,6 +16,21 @@ class SettingsActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Check PIN if required
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val hasPIN = prefs.getString("adult_pin", null) != null
+        
+        if (hasPIN) {
+            // Require PIN to access settings
+            val intent = Intent(this, PINActivity::class.java).apply {
+                putExtra("target_activity", SettingsActivity::class.java)
+            }
+            startActivity(intent)
+            finish()
+            return
+        }
+        
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
@@ -48,6 +67,42 @@ class SettingsActivity : AppCompatActivity() {
             if (hasConsent) {
                 prefs.edit().putBoolean("cloud_sync", isChecked).apply()
             }
+        }
+        
+        // Missions toggle (for teachers/parents)
+        binding.switchMissions.isChecked = prefs.getBoolean("missions_enabled", true)
+        binding.switchMissions.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("missions_enabled", isChecked).apply()
+        }
+        
+        // Reminders toggle
+        val reminderManager = ReminderManager(this)
+        binding.switchReminders.isChecked = reminderManager.areRemindersEnabled()
+        binding.switchReminders.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("reminders_enabled", isChecked).apply()
+            if (isChecked) {
+                // Schedule reminders
+                reminderManager.createDefaultReminders().forEach { reminder ->
+                    reminderManager.scheduleReminder(reminder)
+                }
+            } else {
+                // Cancel all reminders
+                reminderManager.createDefaultReminders().forEach { reminder ->
+                    reminderManager.cancelReminder(reminder)
+                }
+            }
+        }
+        
+        // Set PIN button
+        binding.btnSetPIN.setOnClickListener {
+            startActivity(Intent(this, PINActivity::class.java).apply {
+                putExtra("setting_pin", true)
+            })
+        }
+        
+        // Safe Use Tips button
+        binding.btnSafeTips.setOnClickListener {
+            startActivity(Intent(this, SafeUseTipsActivity::class.java))
         }
         
         binding.btnBack.setOnClickListener {

@@ -57,6 +57,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, GrowthTrackingActivity::class.java))
         }
         
+        binding.btnMissions.setOnClickListener {
+            startActivity(Intent(this, com.arurbangarden.real.ui.missions.MissionsActivity::class.java))
+        }
+        
         binding.btnSettings.setOnClickListener {
             startActivity(Intent(this, SettingsActivity::class.java))
         }

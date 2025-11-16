@@ -81,6 +81,19 @@
                 style="@style/Widget.MaterialComponents.Button" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_missions"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="@string/menu_missions"
+                android:textSize="18sp"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                app:icon="@android:drawable/star_big_on"
+                app:iconGravity="start"
+                app:iconPadding="16dp"
+                style="@style/Widget.MaterialComponents.Button" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_settings"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
