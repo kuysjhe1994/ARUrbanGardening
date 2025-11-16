@@ -4,6 +4,9 @@ import android.content.Context
 import android.graphics.Bitmap
 import com.arurbangarden.real.data.model.Plant
 import com.arurbangarden.real.data.model.PlantRecognitionResult
+import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.label.ImageLabeling
+import com.google.mlkit.vision.label.defaults.ImageLabelerOptions
 import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.support.common.FileUtil
 import org.tensorflow.lite.support.image.ImageProcessor
@@ -13,6 +16,7 @@ import java.io.FileInputStream
 import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 import kotlin.math.max
+import kotlinx.coroutines.tasks.await
 
 class PlantRecognitionModel(private val context: Context) {
     
@@ -66,13 +70,31 @@ class PlantRecognitionModel(private val context: Context) {
     /**
      * Recognize plant from bitmap image
      * Returns PlantRecognitionResult with plant info and confidence
+     * Uses coroutine for async ML Kit fallback
      */
-    fun recognizePlant(bitmap: Bitmap): PlantRecognitionResult {
+    suspend fun recognizePlant(bitmap: Bitmap): PlantRecognitionResult {
         return if (interpreter != null) {
             recognizeWithTFLite(bitmap)
         } else {
-            // Fallback: Use simple color/shape analysis or ML Kit
+            // Fallback: Use ML Kit Image Labeling
             recognizeWithFallback(bitmap)
+        }
+    }
+    
+    /**
+     * Synchronous version for backward compatibility
+     * Note: This will block the thread if using ML Kit fallback
+     */
+    fun recognizePlantSync(bitmap: Bitmap): PlantRecognitionResult {
+        return if (interpreter != null) {
+            recognizeWithTFLite(bitmap)
+        } else {
+            // For sync version, return null if no TFLite model
+            // Caller should use async version instead
+            PlantRecognitionResult(
+                plant = null,
+                confidence = 0.0f
+            )
         }
     }
     
@@ -102,14 +124,67 @@ class PlantRecognitionModel(private val context: Context) {
         )
     }
     
-    private fun recognizeWithFallback(bitmap: Bitmap): PlantRecognitionResult {
-        // Fallback implementation using simple heuristics
-        // In production, integrate ML Kit Image Labeling here
-        // For now, return a placeholder
-        return PlantRecognitionResult(
-            plant = null,
-            confidence = 0.0f
-        )
+    private suspend fun recognizeWithFallback(bitmap: Bitmap): PlantRecognitionResult {
+        // Use ML Kit Image Labeling as real fallback
+        return try {
+            val image = InputImage.fromBitmap(bitmap, 0)
+            val labeler = ImageLabeling.getClient(ImageLabelerOptions.DEFAULT_OPTIONS)
+            
+            val labels = labeler.process(image).await()
+            
+            // Try to match labels with plant database
+            var bestMatch: Plant? = null
+            var bestConfidence = 0.0f
+            
+            labels.forEach { label ->
+                val labelText = label.text.lowercase()
+                val labelConfidence = label.confidence
+                
+                // Search plant database for matches
+                plantDatabase.forEach { plant ->
+                    val plantName = plant.name.lowercase()
+                    val plantNameTagalog = plant.nameTagalog.lowercase()
+                    val scientificName = plant.scientificName.lowercase()
+                    
+                    // Check if label matches any plant name
+                    if (labelText.contains(plantName) || 
+                        labelText.contains(plantNameTagalog) ||
+                        labelText.contains(scientificName) ||
+                        plantName.contains(labelText) ||
+                        plantNameTagalog.contains(labelText)) {
+                        
+                        if (labelConfidence > bestConfidence) {
+                            bestMatch = plant
+                            bestConfidence = labelConfidence
+                        }
+                    }
+                }
+                
+                // Also check for generic plant-related keywords
+                if (labelText.contains("plant") || 
+                    labelText.contains("herb") || 
+                    labelText.contains("vegetable") ||
+                    labelText.contains("leaf") ||
+                    labelText.contains("foliage")) {
+                    // If we have a generic match but no specific plant, use first plant with lower confidence
+                    if (bestMatch == null && plantDatabase.isNotEmpty()) {
+                        bestMatch = plantDatabase.first()
+                        bestConfidence = labelConfidence * 0.5f // Lower confidence for generic match
+                    }
+                }
+            }
+            
+            PlantRecognitionResult(
+                plant = bestMatch,
+                confidence = bestConfidence
+            )
+        } catch (e: Exception) {
+            e.printStackTrace()
+            PlantRecognitionResult(
+                plant = null,
+                confidence = 0.0f
+            )
+        }
     }
     
     private fun createPlantDatabase(): List<Plant> {

@@ -117,8 +117,28 @@ class GrowthTrackingActivity : AppCompatActivity() {
     }
     
     private fun saveBitmapToFile(bitmap: android.graphics.Bitmap): String {
-        // In production, save to app's internal storage
-        // For now, return placeholder path
-        return "growth_${System.currentTimeMillis()}.jpg"
+        return try {
+            val fileName = "growth_${System.currentTimeMillis()}.jpg"
+            val file = java.io.File(getExternalFilesDir(android.os.Environment.DIRECTORY_PICTURES), fileName)
+            
+            val outputStream = java.io.FileOutputStream(file)
+            bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG, 90, outputStream)
+            outputStream.flush()
+            outputStream.close()
+            
+            file.absolutePath
+        } catch (e: Exception) {
+            e.printStackTrace()
+            // Fallback to internal storage
+            val fileName = "growth_${System.currentTimeMillis()}.jpg"
+            val file = java.io.File(filesDir, fileName)
+            
+            val outputStream = java.io.FileOutputStream(file)
+            bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG, 90, outputStream)
+            outputStream.flush()
+            outputStream.close()
+            
+            file.absolutePath
+        }
     }
 }

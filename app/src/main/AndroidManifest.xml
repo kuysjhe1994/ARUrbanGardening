@@ -67,6 +67,20 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.ARUrbanGarden.FullScreen" />
         
+        <!-- AR Plant Recognition Activity -->
+        <activity
+            android:name=".ui.plant.ARPlantRecognitionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden.FullScreen" />
+        
+        <!-- AR Care Guide Activity -->
+        <activity
+            android:name=".ui.plant.care.ARCareGuideActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ARUrbanGarden.FullScreen" />
+        
         <!-- Growth Tracking Activity -->
         <activity
             android:name=".ui.tracking.GrowthTrackingActivity"

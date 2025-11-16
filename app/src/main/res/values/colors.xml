@@ -23,5 +23,15 @@
     
     <color name="ar_overlay_background">#80000000</color>
     <color name="ar_overlay_text">#FFFFFF</color>
+    
+    <!-- AR Plant Recognition Colors -->
+    <color name="plant_name_color">#4CAF50</color>
+    <color name="confidence_color">#FFC107</color>
+    
+    <!-- AR Care Guide Colors -->
+    <color name="water_color">#4A90E2</color>
+    <color name="sunlight_color">#F5A623</color>
+    <color name="soil_color">#8B4513</color>
+    <color name="growth_color">#7ED321</color>
 </resources>
 

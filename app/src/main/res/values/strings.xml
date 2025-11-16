@@ -142,5 +142,77 @@
     <string name="weather_humidity">Humidity: %1$d%%</string>
     <string name="weather_rain">Ulan: %1$s</string>
     
+    <!-- AR Plant Recognition -->
+    <string name="ar_plant_recognition_title">AR Plant Recognition</string>
+    <string name="detecting_plant">Tinutukoy ang halaman…</string>
+    <string name="try_again_message">Hindi malinaw. Subukan muli!</string>
+    <string name="plant_detected">Natuklasan ang %1$s!</string>
+    <string name="confidence_percent">Kumpiyansa: %1$d%%</string>
+    <string name="show_care_guide">Tingnan ang Care Guide</string>
+    <string name="voice_enabled">Voice enabled</string>
+    <string name="toggle_voice">Toggle Voice</string>
+    <string name="back">Back</string>
+    <string name="ar_not_available">ARCore not available</string>
+    <string name="ar_session_failed">AR session failed</string>
+    <string name="camera_permission_required">Camera permission required</string>
+    
+    <!-- Plant Facts -->
+    <string name="fact_sunlight_full">Kailangan ng buong araw (6-8 oras)</string>
+    <string name="fact_sunlight_partial">Okay lang ang bahagyang araw</string>
+    <string name="fact_sunlight_shade">Mas maganda sa lilim</string>
+    <string name="fact_water_daily">Diligan araw-araw</string>
+    <string name="fact_water_2days">Diligan bawat 2 araw</string>
+    <string name="fact_water_weekly">Diligan lingguhan</string>
+    <string name="fact_water_biweekly">Diligan bawat 2 linggo</string>
+    <string name="fact_soil_general">Gamitin ang mayaman na lupa</string>
+    
+    <!-- AR Care Guide -->
+    <string name="water_label">Water</string>
+    <string name="sunlight_label">Sunlight</string>
+    <string name="soil_label">Soil</string>
+    <string name="growth_label">Growth</string>
+    <string name="tap_icon_for_care_instructions">Tap an icon for care instructions!</string>
+    <string name="plant_not_found">Plant not found</string>
+    <string name="good_job">Good Job!</string>
+    <string name="good_job_message">Great job! Keep it up!</string>
+    
+    <!-- Water Instructions -->
+    <string name="water_instructions_title">Water Care</string>
+    <string name="water_step1_daily">1. Check if soil is dry</string>
+    <string name="water_step2_check">2. Touch the soil with your finger</string>
+    <string name="water_step3_pour">3. Pour water slowly at the base</string>
+    <string name="water_step1_check_soil">1. Check if soil feels dry</string>
+    <string name="water_step2_if_dry">2. If dry, water the plant</string>
+    <string name="water_step3_water">3. Water at the base, not on leaves</string>
+    <string name="water_step2_water_if_needed">2. Water only if soil is dry</string>
+    
+    <!-- Sunlight Instructions -->
+    <string name="sunlight_instructions_title">Sunlight Care</string>
+    <string name="sunlight_step1_find_sunny">1. Find a sunny spot</string>
+    <string name="sunlight_step2_place_plant">2. Place plant there</string>
+    <string name="sunlight_step3_check_daily">3. Check every day</string>
+    <string name="sunlight_step1_find_partial">1. Find a spot with some sun</string>
+    <string name="sunlight_step3_avoid_direct">3. Avoid too much direct sun</string>
+    <string name="sunlight_step1_find_shade">1. Find a shady spot</string>
+    
+    <!-- Soil Instructions -->
+    <string name="soil_instructions_title">Soil Care</string>
+    <string name="soil_step1_check_moisture">1. Check soil moisture</string>
+    <string name="soil_step2_feel_soil">2. Feel the soil with your hand</string>
+    <string name="soil_step3_adjust">3. Adjust watering if needed</string>
+    
+    <!-- Growth Instructions -->
+    <string name="growth_instructions_title">Growth Care</string>
+    <string name="growth_step1_measure_height">1. Measure plant height</string>
+    <string name="growth_step2_take_photo">2. Take a photo</string>
+    <string name="growth_step3_track_progress">3. Track your progress</string>
+    
+    <!-- Sensor Advice -->
+    <string name="advice_sunlight_too_dark">Too dark! Move to brighter area.</string>
+    <string name="advice_sunlight_too_bright">Too bright! Move to shadier area.</string>
+    <string name="advice_sunlight_good">Sunlight is good!</string>
+    <string name="advice_water_needed">Water needed! Soil is dry.</string>
+    <string name="advice_water_good">Water level is good!</string>
+    
 </resources>
 

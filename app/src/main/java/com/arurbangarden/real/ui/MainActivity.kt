@@ -8,7 +8,7 @@ import androidx.preference.PreferenceManager
 import com.arurbangarden.real.databinding.ActivityMainBinding
 import com.arurbangarden.real.ui.ar.ARActivity
 import com.arurbangarden.real.ui.onboarding.OnboardingActivity
-import com.arurbangarden.real.ui.plant.PlantRecognitionActivity
+import com.arurbangarden.real.ui.plant.ARPlantRecognitionActivity
 import com.arurbangarden.real.ui.settings.SettingsActivity
 import com.arurbangarden.real.ui.tracking.GrowthTrackingActivity
 
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     
     private fun setupUI() {
         binding.btnIdentifyPlant.setOnClickListener {
-            startActivity(Intent(this, PlantRecognitionActivity::class.java))
+            startActivity(Intent(this, ARPlantRecognitionActivity::class.java))
         }
         
         binding.btnPlaceGarden.setOnClickListener {
